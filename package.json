@@ -1,0 +1,27 @@
+{
+  "name": "buttered-tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.2",
+    "cssnano": "^4.1.7",
+    "postcss-easy-import": "^3.0.0",
+    "tailwindcss": "^0.7.2"
+  }
+}
