@@ -111,27 +111,20 @@ var _jsxFileName = "/Users/Victor/Desktop/buttered-tailwind/pages/index.js";
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "p-4 shadow rounded bg-white",
+    className: "p-2 bg-yellow-dark rounded",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 4
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "text-purple leading-normal",
+    className: "text-white font-sans text-center uppercase leading-normal",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 5
     },
     __self: this
-  }, "Next.js"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "text-grey-dark",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: this
-  }, "with Tailwind CSS"));
+  }, "Buttered"));
 });
 
 /***/ }),
