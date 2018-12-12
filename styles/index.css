@@ -2,5 +2,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-grey-light;
+  @apply bg-grey-lighter;
 }

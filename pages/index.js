@@ -1,9 +1,12 @@
 import "../styles/index.css";
+import NavBar from "../components/NavBar";
+import ProfileHeader from "../components/ProfileHeader";
 
-export default () => (
-  <div className="p-2 bg-yellow-dark rounded">
-    <h1 className="text-white font-sans text-center uppercase leading-normal">
-      Buttered
-    </h1>
-  </div>
+const Profile = () => (
+  <React.Fragment>
+    <NavBar />
+    <ProfileHeader />
+  </React.Fragment>
 );
+
+export default Profile;
