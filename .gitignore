@@ -318,3 +318,15 @@ node_modules
 .next/static/webpack/styles.9eacb08d262a01b754b8.hot-update.js
 .next/static/webpack/styles.9eacb08d262a01b754b8.hot-update.js.map
 *.map
+.next/server/static/development/pages/_app.js
+.next/server/static/development/pages/_app.js.map
+.next/server/static/development/pages/index.js
+.next/server/static/development/pages/index.js.map
+.next/static/chunks/styles.js
+.next/static/chunks/styles.js.map
+.next/static/development/pages/_app.js
+.next/static/development/pages/_app.js.map
+.next/static/development/pages/index.js
+.next/static/development/pages/index.js.map
+.next/static/runtime/webpack.js
+.next/static/runtime/webpack.js.map

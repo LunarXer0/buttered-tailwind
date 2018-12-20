@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getRandomBackDrop from "../redux/actions/actions";
+import { getRandomBackDrop } from "../redux/actions/actions";
 
 export default class Hero extends Component {
   state = {
