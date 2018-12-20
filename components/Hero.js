@@ -15,7 +15,9 @@ export default class Hero extends Component {
       <div className="w-full z-0 text-center">
         {backdropPath && (
           <img
-            src={`https://image.tmdb.org/t/p/w1280${this.state.backdropPath}`}
+            src={`https://image.tmdb.org/t/p/original${
+              this.state.backdropPath
+            }`}
             alt="poster"
           />
         )}
