@@ -1,21 +1,24 @@
 import React, { Component } from "react";
-import getMovieForHero from "../redux/actions/actions";
+import getRandomBackDrop from "../redux/actions/actions";
 
 export default class Hero extends Component {
   state = {
-    posterPath: ""
+    backdropPath: null
   };
   async componentDidMount() {
-    const posterPath = await getMovieForHero();
-    this.setState({ posterPath });
+    const BACKDROP_PATH = await getRandomBackDrop();
+    this.setState({ backdropPath: BACKDROP_PATH });
   }
   render(poster) {
+    const { backdropPath } = this.state;
     return (
       <div className="w-full z-0 text-center">
-        <img
-          src={`https://image.tmdb.org/t/p/w1280${this.state.posterPath}`}
-          alt="poster"
-        />
+        {backdropPath && (
+          <img
+            src={`https://image.tmdb.org/t/p/w1280${this.state.backdropPath}`}
+            alt="poster"
+          />
+        )}
       </div>
     );
   }
