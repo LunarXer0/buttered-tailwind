@@ -317,3 +317,4 @@ node_modules
 .next/static/webpack/styles.81fa8b62646ea567b02a.hot-update.js.map
 .next/static/webpack/styles.9eacb08d262a01b754b8.hot-update.js
 .next/static/webpack/styles.9eacb08d262a01b754b8.hot-update.js.map
+*.map
