@@ -19,3 +19,26 @@ export const fetchMovies = () => async dispatch => {
     data: results
   });
 };
+
+export const switchToSearchView = () => dispatch => {
+  return dispatch({
+    type: "ENTER_SEARCH_VIEW"
+  });
+};
+
+export const resetSearchView = () => async dispatch => {
+  return dispatch({
+    type: "RESET_SEARCH_VIEW"
+  });
+};
+
+export const searchMovie = title => async dispatch => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${title}&page=1&include_adult=false`
+  );
+  const { results } = await res.json();
+  return dispatch({
+    type: "SEARCH_MOVIE",
+    data: results
+  });
+};

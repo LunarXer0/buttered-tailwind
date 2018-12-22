@@ -1,16 +1,35 @@
-import "../styles/index.css";
-import NavBar from "../components/NavBar";
-import ProfileHeader from "../components/ProfileCard";
-import MovieGrid from "../components/MovieGrid";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-const Profile = () => (
-  <React.Fragment>
-    <NavBar />
-    <div className="p-5">
-      <ProfileHeader />
-      <MovieGrid />
-    </div>
-  </React.Fragment>
-);
+import Collection from "../pages/collection";
+import { resetSearchView } from "../redux/actions/actions";
 
-export default Profile;
+class Profile extends React.Component {
+  componentDidMount() {
+    const { searching, resetSearchView } = this.props;
+    {
+      searching && resetSearchView();
+    }
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Collection />
+      </React.Fragment>
+    );
+  }
+}
+
+const mapStateToProps = store => ({
+  searching: store.movies.searching,
+  movies: store.movies.movies
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ resetSearchView }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);

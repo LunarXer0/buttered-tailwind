@@ -2,6 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { fetchMovies } from "../redux/actions/actions";
+import Movie from "./Movie";
 
 class MovieGrid extends React.Component {
   componentDidMount() {
@@ -9,25 +10,26 @@ class MovieGrid extends React.Component {
     !haveLoaded && fetchMovies();
   }
   render() {
-    const { movies } = this.props;
+    const { movies, searching, searchResults } = this.props;
     return (
-      <div className="w-full flex flex-wrap justify-center py-5 shadow-md m-auto mt-10 text-center">
-        {movies.map(movie => (
-          <div
-            className="max-w-xs mb-5 mx-5 rounded overflow-hidden shadow-lg"
-            key={movie.id}
-          >
-            <img
-              className="w-full"
-              src={`http://image.tmdb.org/t/p/w342${movie.poster_path}`}
-              alt={movie.title}
+      <div className="w-full flex flex-wrap justify-start p-5 shadow-md m-auto mt-10 text-center">
+        {!searching &&
+          movies.map(movie => (
+            <Movie
+              key={movie.id}
+              title={movie.title}
+              poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
             />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">{movie.title}</div>
-              <p className="text-grey-darker text-base">{movie.release_date}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        {searching &&
+          searchResults &&
+          searchResults.map(movie => (
+            <Movie
+              key={movie.id}
+              title={movie.title}
+              poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
+            />
+          ))}
       </div>
     );
   }
@@ -35,7 +37,9 @@ class MovieGrid extends React.Component {
 
 const mapStateToProps = store => ({
   haveLoaded: store.movies.haveLoaded,
-  movies: store.movies.movies
+  movies: store.movies.movies,
+  searching: store.movies.searching,
+  searchResults: store.movies.searchResults
 });
 
 const mapDispatchToProps = dispatch =>
