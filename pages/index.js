@@ -2,15 +2,13 @@ import "../styles/index.css";
 import { connect } from "react-redux";
 
 import NavBar from "../components/NavBar";
-import ProfileHeader from "../components/ProfileCard";
-import MovieGrid from "../components/MovieGrid";
+import Collection from "../pages/collection";
 
 const Profile = () => (
   <React.Fragment>
     <NavBar />
     <div className="p-5">
-      <ProfileHeader />
-      <MovieGrid />
+      <Collection />
     </div>
   </React.Fragment>
 );
