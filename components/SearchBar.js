@@ -11,8 +11,7 @@ const SearchBar = ({ searchMovie }) => (
       src="/static/undraw_movie_night.svg"
       width="200px"
       height="200px"
-      caret-color="red"
-      alt="please work"
+      alt="search undraw"
     />
     <br />
     <input
