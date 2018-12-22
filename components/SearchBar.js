@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { searchMovie } from "../redux/actions/actions";
 
 const SearchBar = ({ searchMovie }) => (
-  <div className="text-center w-1/3 mx-auto p-5 rounded-lg bg-yellow-lighter">
+  <div className="text-center w-1/3 mx-auto p-5 rounded-lg bg-twitter border border-solid border-twitter-grey">
     <h2 className="my-5 uppercase text-twitter-red">Search Movie</h2>
     <img
       className="mb-5"
