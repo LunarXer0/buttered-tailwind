@@ -1,4 +1,6 @@
 import "../styles/index.css";
+import { connect } from "react-redux";
+
 import NavBar from "../components/NavBar";
 import ProfileHeader from "../components/ProfileCard";
 import MovieGrid from "../components/MovieGrid";
