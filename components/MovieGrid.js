@@ -11,7 +11,7 @@ class MovieGrid extends React.Component {
   render() {
     const { movies } = this.props;
     return (
-      <div className="w-full flex flex-wrap justify-center py-10 px-6 shadow-md m-auto mt-24 text-center">
+      <div className="w-full flex flex-wrap justify-center py-5 shadow-md m-auto mt-10 text-center">
         {movies.map(movie => (
           <div
             className="max-w-xs mb-5 mx-5 rounded overflow-hidden shadow-lg"
