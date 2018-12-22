@@ -10,24 +10,26 @@ class MovieGrid extends React.Component {
     !haveLoaded && fetchMovies();
   }
   render() {
-    const { movies, searching } = this.props;
+    const { movies, searching, searchResults } = this.props;
     return (
       <div className="w-full flex flex-wrap justify-start p-5 shadow-md m-auto mt-10 text-center">
-        {searching !== true
-          ? movies.map(movie => (
-              <Movie
-                key={movie.id}
-                title={movie.title}
-                poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
-              />
-            ))
-          : searchResults.map(movie => (
-              <Movie
-                key={movie.id}
-                title={movie.title}
-                poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
-              />
-            ))}
+        {!searching &&
+          movies.map(movie => (
+            <Movie
+              key={movie.id}
+              title={movie.title}
+              poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
+            />
+          ))}
+        {searching &&
+          searchResults &&
+          searchResults.map(movie => (
+            <Movie
+              key={movie.id}
+              title={movie.title}
+              poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
+            />
+          ))}
       </div>
     );
   }
@@ -36,7 +38,8 @@ class MovieGrid extends React.Component {
 const mapStateToProps = store => ({
   haveLoaded: store.movies.haveLoaded,
   movies: store.movies.movies,
-  searching: store.movies.searching
+  searching: store.movies.searching,
+  searchResults: store.movies.searchResults
 });
 
 const mapDispatchToProps = dispatch =>

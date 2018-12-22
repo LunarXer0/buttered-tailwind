@@ -1,16 +1,35 @@
-import "../styles/index.css";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import NavBar from "../components/NavBar";
 import Collection from "../pages/collection";
+import { resetSearchView } from "../redux/actions/actions";
 
-const Profile = () => (
-  <React.Fragment>
-    <NavBar />
-    <div className="p-5">
-      <Collection />
-    </div>
-  </React.Fragment>
-);
+class Profile extends React.Component {
+  componentDidMount() {
+    const { searching, resetSearchView } = this.props;
+    {
+      searching && resetSearchView();
+    }
+  }
 
-export default Profile;
+  render() {
+    return (
+      <React.Fragment>
+        <Collection />
+      </React.Fragment>
+    );
+  }
+}
+
+const mapStateToProps = store => ({
+  searching: store.movies.searching,
+  movies: store.movies.movies
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ resetSearchView }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);

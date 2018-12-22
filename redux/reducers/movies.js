@@ -24,6 +24,12 @@ const movies = (state = initialState, action) => {
         ...state,
         searchResults: data
       };
+    case "RESET_SEARCH_VIEW":
+      return {
+        ...state,
+        searching: false,
+        searchResults: []
+      };
     default:
       return state;
   }

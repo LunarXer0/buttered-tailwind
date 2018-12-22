@@ -20,9 +20,15 @@ export const fetchMovies = () => async dispatch => {
   });
 };
 
-export const switchToSearchView = () => async dispatch => {
+export const switchToSearchView = () => dispatch => {
   return dispatch({
     type: "ENTER_SEARCH_VIEW"
+  });
+};
+
+export const resetSearchView = () => async dispatch => {
+  return dispatch({
+    type: "RESET_SEARCH_VIEW"
   });
 };
 
@@ -32,7 +38,7 @@ export const searchMovie = title => async dispatch => {
   );
   const { results } = await res.json();
   return dispatch({
-    type: "SEARCHING_MOVIES",
+    type: "SEARCH_MOVIE",
     data: results
   });
 };

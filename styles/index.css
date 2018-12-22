@@ -2,5 +2,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-grey-lighter;
+  @apply bg-twitter;
 }
