@@ -14,7 +14,7 @@ const NavBar = ({ switchToSearchView }) => (
     </Link>
     <Link href="/search">
       <button
-        className="bg-transparent hover:bg-yellow-dark text-purple-light font-semibold hover:text-white py-2 px-4 border border-purple-light hover:border-purple-light rounded"
+        className="bg-transparent hover:bg-twitter text-white font-semibold hover:text-twitter-red py-2 px-4 border border-white hover:border-twitter-red rounded"
         onClick={switchToSearchView}
       >
         Search Movie

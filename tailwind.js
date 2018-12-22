@@ -46,6 +46,7 @@ let colors = {
   transparent: "transparent",
 
   twitter: "#1B2938",
+  "twitter-red": "#e81c4f",
   black: "#22292f",
   "grey-darkest": "#3d4852",
   "grey-darker": "#606f7b",
