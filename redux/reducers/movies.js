@@ -6,7 +6,7 @@ const initialState = {
 const movies = (state = initialState, action) => {
   const { type, data } = action;
   switch (type) {
-    case "LOAD_SAVED_MOVIES":
+    case "FETCH_MOVIES":
       return {
         ...state,
         haveLoaded: true,
