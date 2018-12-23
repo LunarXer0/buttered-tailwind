@@ -1,13 +1,12 @@
-const TMDB_API_KEY = "a5326823e52c473ffda44ace64b7d44d";
+import {
+  FETCH_MOVIES,
+  ENTER_SEARCH_VIEW,
+  SEARCH_MOVIE,
+  RESET_SEARCH_VIEW,
+  RESET_HAVE_LOADED_STATE
+} from "../reducers/movies";
 
-export const getRandomBackDrop = async () => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}&language=en-US&page=1&region=US`
-  );
-  const movies = await res.json();
-  const BACKDROP_PATH = movies.results[0].backdrop_path;
-  return BACKDROP_PATH;
-};
+const TMDB_API_KEY = "a5326823e52c473ffda44ace64b7d44d";
 
 export const fetchMovies = () => async dispatch => {
   const res = await fetch(
@@ -15,26 +14,26 @@ export const fetchMovies = () => async dispatch => {
   );
   const { results } = await res.json();
   return dispatch({
-    type: "FETCH_MOVIES",
+    type: FETCH_MOVIES,
     data: results
   });
 };
 
 export const switchToSearchView = () => dispatch => {
   return dispatch({
-    type: "ENTER_SEARCH_VIEW"
+    type: ENTER_SEARCH_VIEW
   });
 };
 
 export const resetSearchView = () => async dispatch => {
   return dispatch({
-    type: "RESET_SEARCH_VIEW"
+    type: RESET_SEARCH_VIEW
   });
 };
 
 export const resetHaveLoadedState = () => dispatch => {
   return dispatch({
-    type: "RESET_HAVE_LOADED_STATE"
+    type: RESET_HAVE_LOADED_STATE
   });
 };
 
@@ -44,7 +43,7 @@ export const searchMovie = title => async dispatch => {
   );
   const { results } = await res.json();
   return dispatch({
-    type: "SEARCH_MOVIE",
+    type: SEARCH_MOVIE,
     data: results
   });
 };
