@@ -1,13 +1,17 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { fetchMovies } from "../redux/actions/actions";
+import { fetchMovies, resetHaveLoadedState } from "../redux/actions/actions";
 import Movie from "./Movie";
 
 class MovieGrid extends React.Component {
   componentDidMount() {
-    const { fetchMovies, haveLoaded } = this.props;
+    const { fetchMovies, haveLoaded, searching } = this.props;
     !haveLoaded && fetchMovies();
+  }
+  componentWillUnmount() {
+    const { haveLoaded, resetHaveLoadedState } = this.props;
+    resetHaveLoadedState();
   }
   render() {
     const { movies, searching, searchResults } = this.props;
@@ -43,7 +47,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchMovies }, dispatch);
+  bindActionCreators({ fetchMovies, resetHaveLoadedState }, dispatch);
 
 export default connect(
   mapStateToProps,

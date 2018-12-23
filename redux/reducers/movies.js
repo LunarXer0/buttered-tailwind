@@ -5,6 +5,12 @@ const initialState = {
   searchResults: []
 };
 
+export const FETCH_MOVIES = "FETCH_MOVIES";
+export const ENTER_SEARCH_VIEW = "ENTER_SEARCH_VIEW";
+export const SEARCH_MOVIE = "SEARCH_MOVIE";
+export const RESET_SEARCH_VIEW = "RESET_SEARCH_VIEW";
+export const RESET_HAVE_LOADED_STATE = "RESET_HAVE_LOADED_STATE";
+
 const movies = (state = initialState, action) => {
   const { type, data } = action;
   switch (type) {
@@ -29,6 +35,11 @@ const movies = (state = initialState, action) => {
         ...state,
         searching: false,
         searchResults: []
+      };
+    case "RESET_HAVE_LOADED_STATE":
+      return {
+        ...state,
+        haveLoaded: false
       };
     default:
       return state;
