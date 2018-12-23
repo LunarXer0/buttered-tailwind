@@ -32,6 +32,12 @@ export const resetSearchView = () => async dispatch => {
   });
 };
 
+export const resetHaveLoadedState = () => dispatch => {
+  return dispatch({
+    type: "RESET_HAVE_LOADED_STATE"
+  });
+};
+
 export const searchMovie = title => async dispatch => {
   const res = await fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${title}&page=1&include_adult=false`

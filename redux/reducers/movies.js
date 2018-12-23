@@ -30,6 +30,11 @@ const movies = (state = initialState, action) => {
         searching: false,
         searchResults: []
       };
+    case "RESET_HAVE_LOADED_STATE":
+      return {
+        ...state,
+        haveLoaded: false
+      };
     default:
       return state;
   }
