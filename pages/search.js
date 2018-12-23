@@ -4,15 +4,15 @@ import { connect } from "react-redux";
 import SearchBar from "../components/SearchBar";
 import MovieGrid from "../components/MovieGrid";
 
-const Search = ({ searchResults }) => (
+const Search = ({ searching }) => (
   <React.Fragment>
     <SearchBar />
-    {searchResults && <MovieGrid />}
+    {searching && <MovieGrid />}
   </React.Fragment>
 );
 
 const mapStateToProps = store => ({
-  searchResults: store.movies.searchResults
+  searching: store.movies.searching
 });
 
 export default connect(mapStateToProps)(Search);
