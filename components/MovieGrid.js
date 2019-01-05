@@ -23,6 +23,7 @@ const MovieGrid = ({
             key={movie.id}
             title={movie.title}
             poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
+            {...movie}
           />
         ))}
       {searching &&

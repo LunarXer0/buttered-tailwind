@@ -1,6 +1,8 @@
 @tailwind preflight;
 @tailwind utilities;
 
+html,
 body {
   @apply bg-twitter;
+  height: 100%;
 }

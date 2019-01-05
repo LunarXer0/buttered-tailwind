@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getRandomBackDrop } from "../redux/actions/actions";
 
 // export default class Hero extends Component {
 //   state = {
