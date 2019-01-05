@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 const MovieDetails = ({ selectedMovie }) => {
   useEffect(() => {
-    console.log(selectedMovie);
+    //console.log(selectedMovie);
   });
 
   return (

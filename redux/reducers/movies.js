@@ -34,8 +34,7 @@ const movies = (state = initialState, action) => {
     case "RESET_SEARCH_VIEW":
       return {
         ...state,
-        searching: false,
-        searchResults: []
+        searching: false
       };
     case "HANDLE_MOVIE_SELECTION":
       return {

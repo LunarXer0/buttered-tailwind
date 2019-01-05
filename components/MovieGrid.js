@@ -21,9 +21,9 @@ const MovieGrid = ({
         movies.map(movie => (
           <Movie
             key={movie.id}
+            details={movie}
             title={movie.title}
             poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
-            {...movie}
           />
         ))}
       {searching &&
@@ -31,6 +31,7 @@ const MovieGrid = ({
         searchResults.map(movie => (
           <Movie
             key={movie.id}
+            details={movie}
             title={movie.title}
             poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
           />
