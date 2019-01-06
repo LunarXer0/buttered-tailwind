@@ -22,7 +22,7 @@ const MovieGrid = ({
           <Movie
             key={movie.id}
             title={movie.title}
-            poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
+            poster={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
           />
         ))}
       {searching &&
@@ -31,7 +31,7 @@ const MovieGrid = ({
           <Movie
             key={movie.id}
             title={movie.title}
-            poster={`https://image.tmdb.org/t/p/w154${movie.poster_path}`}
+            poster={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
           />
         ))}
     </div>
