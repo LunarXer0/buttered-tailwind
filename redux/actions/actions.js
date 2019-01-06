@@ -3,7 +3,7 @@ import {
   ENTER_SEARCH_VIEW,
   SEARCH_MOVIE,
   RESET_SEARCH_VIEW,
-  RESET_HAVE_LOADED_STATE
+  HANDLE_MOVIE_SELECTION
 } from "../reducers/movies";
 
 const TMDB_API_KEY = "a5326823e52c473ffda44ace64b7d44d";
@@ -31,9 +31,10 @@ export const resetSearchView = () => async dispatch => {
   });
 };
 
-export const resetHaveLoadedState = () => dispatch => {
+export const handleMovieSelection = data => async dispatch => {
   return dispatch({
-    type: RESET_HAVE_LOADED_STATE
+    type: HANDLE_MOVIE_SELECTION,
+    data
   });
 };
 

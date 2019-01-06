@@ -20,11 +20,6 @@ const NavBar = ({ switchToSearchView }) => (
         Search Movie
       </button>
     </Link>
-
-    {/* <input
-        className="appearance-none bg-transparent border-none w-full  text-grey-darker mr-3 py-1 px-2 leading-tight focus:outline-none"
-        placeholder="Search Movie"
-      /> */}
   </div>
 );
 

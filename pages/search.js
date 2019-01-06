@@ -2,19 +2,22 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { resetSearchView } from "../redux/actions/actions";
+import { switchToSearchView, resetSearchView } from "../redux/actions/actions";
 import SearchBar from "../components/SearchBar";
 import MovieGrid from "../components/MovieGrid";
 
-const Search = ({ searching, resetSearchView }) => {
+const Search = ({ searching, switchToSearchView, resetSearchView }) => {
   useEffect(() => {
-    return () => resetSearchView();
-  });
+    searching === false && switchToSearchView();
+    return () => {
+      resetSearchView();
+    };
+  }, []);
 
   return (
     <React.Fragment>
       <SearchBar />
-      {searching && <MovieGrid />}
+      {searching === true && <MovieGrid />}
     </React.Fragment>
   );
 };
@@ -24,7 +27,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ resetSearchView }, dispatch);
+  bindActionCreators({ switchToSearchView, resetSearchView }, dispatch);
 
 export default connect(
   mapStateToProps,
