@@ -16,7 +16,7 @@ const MovieGrid = ({
   });
 
   return (
-    <div className="w-full flex flex-wrap justify-start p-5 shadow-md m-auto mt-10 text-center">
+    <div className="w-full flex flex-wrap justify-start p-5 shadow-md  mt-10 ">
       {!searching &&
         movies.map(movie => (
           <Movie
