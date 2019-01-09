@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { fetchMovies, fetchLocalStorageMovies } from "../redux/actions/actions";
+import { fetchLocalStorageMovies } from "../redux/actions/actions";
 import { getLocalStorageMovies } from "../utilities/localStorage";
 import Movie from "./Movie";
 
 const MovieGrid = ({
-  fetchMovies,
   haveLoaded,
   movies,
   searching,
@@ -50,7 +49,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchMovies, fetchLocalStorageMovies }, dispatch);
+  bindActionCreators({ fetchLocalStorageMovies }, dispatch);
 
 export default connect(
   mapStateToProps,
