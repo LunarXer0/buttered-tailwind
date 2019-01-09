@@ -6,7 +6,6 @@ import { getLocalStorageMovies } from "../utilities/localStorage";
 import Movie from "./Movie";
 
 const MovieGrid = ({
-  haveLoaded,
   movies,
   searching,
   searchResults,
