@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { fetchMovies } from "../redux/actions/actions";
+import { fetchMovies, fetchLocalStorageMovies } from "../redux/actions/actions";
+import { getLocalStorageMovies } from "../utilities/localStorage";
 import Movie from "./Movie";
 
 const MovieGrid = ({
@@ -9,11 +10,12 @@ const MovieGrid = ({
   haveLoaded,
   movies,
   searching,
-  searchResults
+  searchResults,
+  fetchLocalStorageMovies
 }) => {
   useEffect(() => {
-    !haveLoaded && fetchMovies();
-  });
+    searching === false && fetchLocalStorageMovies();
+  }, []);
 
   return (
     <div className="w-full flex flex-wrap justify-start m-10">
@@ -48,7 +50,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchMovies }, dispatch);
+  bindActionCreators({ fetchMovies, fetchLocalStorageMovies }, dispatch);
 
 export default connect(
   mapStateToProps,
