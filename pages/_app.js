@@ -23,7 +23,7 @@ export default class MyApp extends App {
       <Provider store={store}>
         <Container>
           <NavBar />
-          <div className="p-5">
+          <div className="p-0">
             <Component {...pageProps} />
           </div>
         </Container>
