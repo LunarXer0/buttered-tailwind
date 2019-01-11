@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { fetchLocalStorageMovies } from "../redux/actions/actions";
-import { getLocalStorageMovies } from "../utilities/localStorage";
+
 import Movie from "./Movie";
 
 const MovieGrid = ({
-  haveLoaded,
   movies,
   searching,
   searchResults,

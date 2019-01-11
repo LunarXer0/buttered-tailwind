@@ -3,6 +3,7 @@ import "../styles/index.css";
 import App, { Container } from "next/app";
 import { Provider } from "react-redux";
 import store from "../redux/createStore";
+
 import NavBar from "../components/NavBar";
 
 export default class MyApp extends App {

@@ -11,6 +11,11 @@ import { getLocalStorageMovies } from "../../utilities/localStorage";
 
 const TMDB_API_KEY = "a5326823e52c473ffda44ace64b7d44d";
 
+export const firebaseTest = async (dispatch, { getFirebase, getFirestore }) => {
+  const firestore = getFirestore();
+  firestore.get({ collection: "movies" });
+};
+
 export const fetchMovies = () => async dispatch => {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}&language=en-US&page=1&region=US`
@@ -22,7 +27,10 @@ export const fetchMovies = () => async dispatch => {
   });
 };
 
-export const fetchLocalStorageMovies = () => async dispatch => {
+export const fetchLocalStorageMovies = () => async (
+  dispatch,
+  { getFirebase, getFirestore }
+) => {
   const movies = getLocalStorageMovies();
   return dispatch({
     type: FETCH_LOCAL_STORAGE_MOVIES,

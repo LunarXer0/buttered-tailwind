@@ -14,12 +14,16 @@
   "license": "ISC",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "firebase": "^5.7.3",
     "next": "^7.0.2",
+    "re-base": "^4.0.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-redux": "^6.0.0",
+    "react-redux-firebase": "^2.2.6",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
+    "redux-firestore": "^0.6.2",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
