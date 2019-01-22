@@ -1,35 +1,33 @@
-//@ts-check
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { searchMovie } from "../redux/actions/actions";
+import React, { useState } from "react";
 
-const SearchBar = ({ searchMovie }) => (
-  <div className="text-center w-1/3 mx-auto p-5 rounded-lg bg-twitter border border-solid border-twitter-grey">
-    <h2 className="my-5 uppercase text-twitter-red">Search Movie</h2>
-    <img
-      className="mb-5"
-      src="/static/undraw_movie_night.svg"
-      width="200px"
-      height="200px"
-      alt="search undraw"
-    />
-    <br />
-    <input
-      className="w-1/2 p-2 appearance-none rounded-sm bg-yellow-light text-grey-darker leading-tight focus:outline-none"
-      placeholder="Search Movie"
-      onChange={e => searchMovie(e.target.value)}
-    />
-  </div>
-);
+const SearchBar = () => {
+  const [searchType, setSearchType] = useState("movies");
+  return (
+    <div className="mt-10 flex justify-center">
+      <div className="inline-block relative w-24">
+        <select
+          onChange={e => setSearchType(e.target.value)}
+          className="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="movies">Movies</option>
+          <option value="tv">TV Shows</option>
+        </select>
+        <div className="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+          <svg
+            className="fill-current h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </svg>
+        </div>
+      </div>
+      <input
+        className="inline-block m-0 py-3 px-3 w-full focus:outline-none bg-twitter text-white"
+        placeholder="Search for a movie, TV Show"
+      />
+    </div>
+  );
+};
 
-const mapStateToProps = store => ({
-  searchResults: store.movies.searchResults
-});
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ searchMovie }, dispatch);
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchBar);
+export default SearchBar;

@@ -15,6 +15,9 @@ export const checkIfMovieIsInLocalStorage = movie => {
   return found;
 };
 
-export const getLocalStorageMovies = () => {
-  return JSON.parse(localStorage.getItem("movies")) || [];
-};
+// export const getLocalStorageMovies = () => {
+//   return JSON.parse(localStorage.getItem("movies")) || [];
+// };
+
+export const getLocalStorageItem = item =>
+  JSON.parse(localStorage.getItem(item)) || [];

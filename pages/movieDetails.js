@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import Hero from "../components/Hero";
-import { addMovieToLocalStorage } from "../utilities/localStorage";
+import {
+  addMovieToLocalStorage,
+  checkIfMovieIsInLocalStorage
+} from "../utilities/localStorage";
 
 const MovieDetails = ({ selectedMovie }) => {
-  useEffect(() => {
-    //console.log(selectedMovie);
-  });
-
   return (
     <Fragment>
       <Hero backdrop={selectedMovie.backdrop_path} />;
@@ -16,7 +15,9 @@ const MovieDetails = ({ selectedMovie }) => {
           className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
           onClick={() => addMovieToLocalStorage(selectedMovie)}
         >
-          Add To Collection
+          {checkIfMovieIsInLocalStorage(selectedMovie)
+            ? "Watched"
+            : "Add To Collection"}
         </button>
       </div>
     </Fragment>

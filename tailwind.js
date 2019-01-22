@@ -50,7 +50,7 @@ let colors = {
   "twitter-grey": "#38444d",
   "twitter-font-grey": "#8899a6",
 
-  black: "#22292f",
+  black: "#020D18",
   "grey-darkest": "#3d4852",
   "grey-darker": "#606f7b",
   "grey-dark": "#8795a1",
@@ -100,7 +100,7 @@ let colors = {
   "teal-lighter": "#a0f0ed",
   "teal-lightest": "#e8fffe",
 
-  "blue-darkest": "#12283a",
+  "blue-darkest": "#020D18",
   "blue-darker": "#1c3d5a",
   "blue-dark": "#2779bd",
   blue: "#3490dc",

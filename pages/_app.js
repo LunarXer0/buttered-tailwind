@@ -12,7 +12,6 @@ export default class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-
     return { pageProps };
   }
 
@@ -22,8 +21,8 @@ export default class MyApp extends App {
     return (
       <Provider store={store}>
         <Container>
-          <NavBar />
-          <div className="p-0">
+          <div className="container mx-auto px-32">
+            <NavBar />
             <Component {...pageProps} />
           </div>
         </Container>

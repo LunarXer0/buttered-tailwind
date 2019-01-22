@@ -7,7 +7,10 @@ import {
   FETCH_LOCAL_STORAGE_MOVIES
 } from "../reducers/movies";
 
-import { getLocalStorageMovies } from "../../utilities/localStorage";
+import {
+  getLocalStorageMovies,
+  getLocalStorageItem
+} from "../../utilities/localStorage";
 
 const TMDB_API_KEY = "a5326823e52c473ffda44ace64b7d44d";
 
@@ -23,7 +26,7 @@ export const fetchMovies = () => async dispatch => {
 };
 
 export const fetchLocalStorageMovies = () => async dispatch => {
-  const movies = getLocalStorageMovies();
+  const movies = getLocalStorageItem("movies");
   return dispatch({
     type: FETCH_LOCAL_STORAGE_MOVIES,
     data: movies

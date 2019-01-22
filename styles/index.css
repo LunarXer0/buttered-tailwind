@@ -3,6 +3,6 @@
 
 html,
 body {
-  @apply bg-twitter;
+  @apply bg-black;
   height: 100%;
 }

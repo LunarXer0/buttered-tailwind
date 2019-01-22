@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import Collection from "../pages/collection";
+import Home from "../pages/home";
 import { resetSearchView } from "../redux/actions/actions";
 
-const Profile = () => {
+const IndexPage = () => {
   return (
     <React.Fragment>
-      <Collection />
+      <Home />
     </React.Fragment>
   );
 };
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Profile);
+)(IndexPage);

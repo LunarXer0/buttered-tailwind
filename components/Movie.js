@@ -4,17 +4,14 @@ import { connect } from "react-redux";
 import Link from "next/link";
 import { handleMovieSelection } from "../redux/actions/actions";
 
-const Movie = ({ handleMovieSelection, poster, title, details }) => (
-  <Link href="/movieDetails">
-    <a>
-      <img
-        className="m-2"
-        onClick={() => handleMovieSelection(details)}
-        src={poster}
-        alt={title}
-      />
-    </a>
-  </Link>
+const Movie = ({ poster, title }) => (
+  <React.Fragment>
+    <Link href="/movieDetails">
+      <a>
+        <img className="m-2" src={poster} alt={title} />
+      </a>
+    </Link>
+  </React.Fragment>
 );
 
 const mapStateToProps = store => ({
