@@ -21,7 +21,7 @@ export default class MyApp extends App {
     return (
       <Provider store={store}>
         <Container>
-          <div className="container mx-auto px-32">
+          <div className="max-w-4xl mx-auto">
             <NavBar />
             <Component {...pageProps} />
           </div>
