@@ -3,7 +3,8 @@ const initialState = {
   movies: [],
   searching: false,
   searchResults: [],
-  selectedMovie: []
+  selectedMovie: [],
+  popularMovies: []
 };
 
 export const FETCH_MOVIES = "FETCH_MOVIES";
@@ -12,6 +13,7 @@ export const SEARCH_MOVIE = "SEARCH_MOVIE";
 export const RESET_SEARCH_VIEW = "RESET_SEARCH_VIEW";
 export const HANDLE_MOVIE_SELECTION = "HANDLE_MOVIE_SELECTION";
 export const FETCH_LOCAL_STORAGE_MOVIES = "FETCH_LOCAL_STORAGE_MOVIES";
+export const POPULAR_MOVIES = "POPULAR_MOVIES";
 
 const movies = (state = initialState, action) => {
   const { type, data } = action;
@@ -48,6 +50,11 @@ const movies = (state = initialState, action) => {
       return {
         ...state,
         selectedMovie: data
+      };
+    case POPULAR_MOVIES:
+      return {
+        ...state,
+        popularMovies: data
       };
     default:
       return state;

@@ -1,24 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getPopularMovies } from "../redux/actions/actions";
 import Movie from "./Movie";
 
-const Carousel = () => {
+const Carousel = ({ popularMovies, getPopularMovies }) => {
   const [movies, setMovies] = useLocalStorage("movies", "");
-  console.log(movies);
+  const [popMovies, setPopMovies] = useState("");
+
+  useEffect(() => {
+    getPopularMovies();
+  }, []);
+
   return (
     <div className="mt-10">
-      {movies &&
-        movies.map(movie => (
-          <Movie
-            key={movie.id}
-            poster={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
-            title={movie.title}
-          />
-        ))}
+      {popularMovies &&
+        popularMovies
+          .slice(0, 12)
+          .map(movie => (
+            <Movie
+              key={movie.id}
+              poster={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+              title={movie.title}
+            />
+          ))}
     </div>
   );
 };
 
-export default Carousel;
+const mapStateToProps = store => ({
+  popularMovies: store.movies.popularMovies
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ getPopularMovies }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Carousel);
 
 function useLocalStorage(key, initialValue) {
   const [item, setInnerValue] = useState(() => {

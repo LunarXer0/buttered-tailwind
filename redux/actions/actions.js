@@ -4,7 +4,8 @@ import {
   SEARCH_MOVIE,
   RESET_SEARCH_VIEW,
   HANDLE_MOVIE_SELECTION,
-  FETCH_LOCAL_STORAGE_MOVIES
+  FETCH_LOCAL_STORAGE_MOVIES,
+  POPULAR_MOVIES
 } from "../reducers/movies";
 
 import {
@@ -30,6 +31,21 @@ export const fetchLocalStorageMovies = () => async dispatch => {
   return dispatch({
     type: FETCH_LOCAL_STORAGE_MOVIES,
     data: movies
+  });
+};
+
+export const getPopularMovies = () => async dispatch => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}&language=en-US`
+  );
+  const { results } = await res.json();
+  const sorted = results.sort((a, b) => {
+    return b.vote_average - a.vote_average;
+  });
+
+  return dispatch({
+    type: POPULAR_MOVIES,
+    data: sorted
   });
 };
 
